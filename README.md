@@ -13,13 +13,18 @@ Arka uçta [yt-dlp](https://github.com/yt-dlp/yt-dlp) + ffmpeg, ön uçta tek bi
 
 ## Yerelde çalıştırma
 
-Gereksinim: Python 3.10+ ve `ffmpeg` (macOS: `brew install ffmpeg`, Ubuntu: `sudo apt install ffmpeg`).
+Gereksinim: Python 3.11+ ve `ffmpeg`.
+- macOS: `brew install python@3.12 ffmpeg` (Homebrew yoksa: https://brew.sh)
+- Ubuntu: `sudo apt install python3 python3-venv ffmpeg`
 
 ```bash
-python3 -m venv .venv && source .venv/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 python app.py
 ```
+
+> macOS'ta `python` / `pip` komutu yoksa yukarıdaki gibi `python3` ile sanal ortam (venv) oluştur; ortam açıkken `pip` ve `python` çalışır.
 
 Tarayıcıda http://localhost:8000 adresini aç.
 

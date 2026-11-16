@@ -7,6 +7,8 @@ Akış:
   4. /api/export/ID?format=mp4|mp3[&start=&end=] -> tamamı ya da kırpılmış hali
 """
 
+from __future__ import annotations
+
 import os
 import re
 import secrets
