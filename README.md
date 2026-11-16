@@ -21,6 +21,10 @@ Klasörde **`Cuter.command`** dosyasına çift tıkla ya da terminalde:
 
 İlk açılışta gereken her şeyi kendisi kurar (Python, ffmpeg, paketler — Homebrew veya şifre gerekmez), ardından tarayıcıda http://localhost:8000 açılır.
 
+## Telefondan / her yerden açmak için link
+
+**`Cuter-Link.command`** dosyasına çift tıkla. Uygulamayı başlatır, `https://….trycloudflare.com` şeklinde bir link verir (panoya kopyalar, telefon için QR kod gösterir). Link, Mac açık ve pencere açıkken çalışır; her açılışta yeni bir link oluşur.
+
 ## Elle kurulum
 
 Gereksinim: Python 3.11+. Sistemde `ffmpeg` yoksa `imageio-ffmpeg` paketiyle gelen hazır sürüm kullanılır.
