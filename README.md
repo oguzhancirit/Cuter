@@ -11,9 +11,19 @@ YouTube videolarını ve Shorts'ları **MP4** veya **MP3** olarak indiren, ister
    - **Kırp ve indir** — önizleme oynatıcısında başlangıç/bitişi seç, sadece o bölümü indir
 Arka uçta [yt-dlp](https://github.com/yt-dlp/yt-dlp) + ffmpeg, ön uçta tek bir HTML sayfası var.
 
-## Yerelde çalıştırma
+## En kolay yol (macOS)
 
-Gereksinim: Python 3.11+ ve `ffmpeg`.
+Klasörde **`Cuter.command`** dosyasına çift tıkla ya da terminalde:
+
+```bash
+./Cuter.command
+```
+
+İlk açılışta gereken her şeyi kendisi kurar (Python, ffmpeg, paketler — Homebrew veya şifre gerekmez), ardından tarayıcıda http://localhost:8000 açılır.
+
+## Elle kurulum
+
+Gereksinim: Python 3.11+. Sistemde `ffmpeg` yoksa `imageio-ffmpeg` paketiyle gelen hazır sürüm kullanılır.
 - macOS: `brew install python@3.12 ffmpeg` (Homebrew yoksa: https://brew.sh)
 - Ubuntu: `sudo apt install python3 python3-venv ffmpeg`
 

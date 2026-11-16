@@ -35,6 +35,18 @@ JOB_ID = re.compile(r"^[a-f0-9]{32}$")
 os.makedirs(CACHE_DIR, exist_ok=True)
 
 
+def find_ffmpeg() -> str:
+    """Sistemde ffmpeg varsa onu, yoksa imageio-ffmpeg ile gelen hazır ikiliyi kullan."""
+    found = shutil.which("ffmpeg")
+    if found:
+        return found
+    import imageio_ffmpeg
+    return imageio_ffmpeg.get_ffmpeg_exe()
+
+
+FFMPEG = find_ffmpeg()
+
+
 # ---------- yardımcılar ----------
 
 def clean_url(raw: str | None) -> str | None:
@@ -49,7 +61,8 @@ def clean_url(raw: str | None) -> str | None:
 
 
 def base_opts() -> dict:
-    return {"quiet": True, "no_warnings": True, "noprogress": True, "noplaylist": True}
+    return {"quiet": True, "no_warnings": True, "noprogress": True, "noplaylist": True,
+            "ffmpeg_location": FFMPEG}
 
 
 def sweep_cache() -> None:
@@ -178,7 +191,7 @@ def export(job_id):
     if fmt == "mp4" and not trimmed:
         return send_file(src, as_attachment=True, download_name=f"{title}.mp4")
 
-    cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y"]
+    cmd = [FFMPEG, "-hide_banner", "-loglevel", "error", "-y"]
     if trimmed:
         cmd += ["-ss", f"{start:.3f}"]
     cmd += ["-i", src]
